@@ -7,6 +7,14 @@ See below for specific instructions for setting up and running both services.
 ## Wrangler (Cloudflare)
 If you haven't already go ahead and [signup for Cloudflare workers](https://dash.cloudflare.com/). You can attempt to run on their free tier but I highly suggest just biting the very affordable bullet and upgrading to their $5/mo plan which will allow you to scale much more nicely.
 
+If you are new to wrangler, you will need to install the wrangler-cli globally.
+
+```$ npm i @cloudflare/wrangler -g```
+
+Once installed, you need to log in to your Cloudflare account.
+
+```$ npx wrangler login```
+
 Next generate the `.env` and `wrangler.toml` files from their templates. Just run `npm run init` inside the `wrangler` subdirectory. The script will ask for a bunch of values, which you'll need at hand in order to successfully finish the init step. If there are default-values, they will be prefilled (e.g. `HORIZON_URL` defaults to the test net). If you don't have the value at hand (i.e. you can only run the wrangler cli to create KV namespaces (step 2 below) *after* providing `WRANGLER_ACCOUNT_ID`) just hit enter. You can repeat this step as often as you want to. Variables in `.env` that already have values assigned won't be updated again by this step.
 
 1. For the `account_id` go to the workers page on [dash.cloudflare.com](https://dash.cloudflare.com) and copy your `Account ID`.
